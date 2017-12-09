@@ -10,12 +10,16 @@ public class Articulo {
     private String codigoArticulo;
     private Autor autorArticulo;
     private String tituloArticulo;
+    private Revista revistaArticulo;
 
-    public Articulo(String codigoArticulo, Autor autorArticulo, String tituloArticulo) {
+    public Articulo(String codigoArticulo, Autor autorArticulo, String tituloArticulo, Revista revistaArticulo) {
         this.codigoArticulo = codigoArticulo;
         this.autorArticulo = autorArticulo;
         this.tituloArticulo = tituloArticulo;
+        this.revistaArticulo = revistaArticulo;
     }
+
+   
 
     public String getCodigoArticulo() {
         return codigoArticulo;
@@ -40,6 +44,15 @@ public class Articulo {
     public void setTituloArticulo(String tituloArticulo) {
         this.tituloArticulo = tituloArticulo;
     }
+
+    public Revista getRevistaArticulo() {
+        return revistaArticulo;
+    }
+
+    public void setRevistaArticulo(Revista revistaArticulo) {
+        this.revistaArticulo = revistaArticulo;
+    }
+    
 
     @Override
     public String toString() {
