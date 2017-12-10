@@ -5,6 +5,7 @@
  */
 package vista;
 
+import controlador.EventoVentanaArticulo;
 import controlador.GestionDato;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -193,7 +194,7 @@ public class VentanaArticulo extends JInternalFrame
         this.scroll = new JScrollPane(tabla);
         this.panelPrincipal.add(this.scroll,BorderLayout.CENTER);
         
-     //   this.boton.addActionListener(new EventoVentanaInscripcion(this));
+        this.boton.addActionListener(new EventoVentanaArticulo(this));
         
         this.add(this.panelPrincipal);
         

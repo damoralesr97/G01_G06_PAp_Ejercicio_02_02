@@ -5,6 +5,7 @@
  */
 package vista;
 
+import controlador.EventoVentanaAutor;
 import controlador.GestionDato;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -171,8 +172,8 @@ public class VentanaAutor extends JInternalFrame
         
         this.panelPrincipal.add(this.scroll,BorderLayout.CENTER);
         
-        //poner que realiza el boton
-      //this.boton.addActionListener(new EventoVentanaAspirante(this));
+        
+        this.boton.addActionListener(new EventoVentanaAutor(this));
         
         this.add(this.panelPrincipal);
         

@@ -5,6 +5,7 @@
  */
 package vista;
 
+import controlador.EventoVentanaRevista;
 import controlador.GestionDato;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -183,15 +184,15 @@ public class VentanaRevista extends JInternalFrame
         this.encabezado[2] = "Nombre";
         this.encabezado[3] = "Codigo";
         
-        this.datos = this.cargaDatosTabla(this.gD.getAutorList().size(),3);
+        this.datos = this.cargaDatosTabla(this.gD.getRevistaList().size(),3);
         this.modeloTabla = new DefaultTableModel(this.datos,this.encabezado);
         this.tabla = new JTable(modeloTabla);
         this.scroll = new JScrollPane(tabla);
         
          this.panelPrincipal.add(this.scroll,BorderLayout.CENTER);
         
-       //poner que realiza el boton
-      //this.boton.addActionListener(new EventoVentanaAspirante(this));
+       
+        this.boton.addActionListener(new EventoVentanaRevista(this));
         
         this.add(this.panelPrincipal);
      }
