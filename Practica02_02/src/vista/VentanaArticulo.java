@@ -49,7 +49,7 @@ public class VentanaArticulo extends JInternalFrame
         super("Registrar Articulo",true,true,true,true);
         this.gD=gD;
         this.iniciaComponente();
-        this.setSize(500, 500);
+        this.setSize(300, 300);
     }
 
     public List<JLabel> getEtiList() {

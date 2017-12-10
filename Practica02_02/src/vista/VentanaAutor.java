@@ -44,7 +44,7 @@ public class VentanaAutor extends JInternalFrame
         super("Registrar Autor",true,true,true,true);
         this.gD=gD;
         this.iniciaComponentes();
-        this.setSize(500, 500);
+        this.setSize(300, 300);
     }
 
     public List<JLabel> getEtiList() {

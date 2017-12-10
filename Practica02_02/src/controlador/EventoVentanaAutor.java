@@ -5,8 +5,12 @@
  */
 package controlador;
 
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import modelo.Autor;
 import vista.VentanaAutor;
 
@@ -43,6 +47,20 @@ public class EventoVentanaAutor implements ActionListener {
         
         Autor autor=new Autor(nombre,Integer.parseInt(codigo),cedula);
         this.ventanaAutor.getgD().addAutor(autor);
+        
+        
+        JFileChooser guardar=new JFileChooser();
+        JButton boton=new JButton();
+        
+        if(guardar.showSaveDialog(boton)==JFileChooser.APPROVE_OPTION){
+            File archivo=new File(guardar.getSelectedFile().getAbsolutePath());
+        }else{
+            System.out.println("Se cancelo su opcion");
+        }
+        
+        
+        
+        
         
         
         

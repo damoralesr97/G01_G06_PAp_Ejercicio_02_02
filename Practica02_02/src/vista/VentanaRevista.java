@@ -47,7 +47,7 @@ public class VentanaRevista extends JInternalFrame
         super("Registrar Revista",true,true,true,true);
         this.gD=gD;
         this.iniciaComponentes();
-        this.setSize(500, 500);
+        this.setSize(300, 300);
     }
 
     public List<JLabel> getEtiList() {
