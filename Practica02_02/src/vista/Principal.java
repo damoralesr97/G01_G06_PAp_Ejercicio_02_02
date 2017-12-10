@@ -18,7 +18,7 @@ public class Principal {
         List<Articulo> articuloList = new  ArrayList<Articulo>();
         
         GestionDato gD = new GestionDato(autorList,articuloList,revistaList);
-        VentanaPrincipal vP = new VentanaPrincipal("REVISTA",900,900,gD);
+        VentanaPrincipal vP = new VentanaPrincipal("Software para Inscripcion de revistas",600,600,gD);
         vP.setVisible(true);
         
     }

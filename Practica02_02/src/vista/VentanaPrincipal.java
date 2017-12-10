@@ -136,8 +136,4 @@ public class VentanaPrincipal extends JFrame
         this.gd = gd;
     }
     
-    
-    
-    
-    
 }

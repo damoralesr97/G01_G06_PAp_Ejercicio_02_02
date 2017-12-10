@@ -47,16 +47,16 @@ public class GestionDato
         this.revistaList = revistaList;
     }
     
-    public boolean addAspirante(Revista revista){
-        return this.revistaList.add(revista);
+    public boolean addAspirante(Revista r){
+        return this.revistaList.add(r);
     }
  
-    public boolean addRector(Autor autor){
-        return this.autorList.add(autor);
+    public boolean addAutor(Autor au){
+        return this.autorList.add(au);
     }
     
-    public boolean addUniversidad(Articulo arti){
-        return this.articuloList.add(arti);
+    public boolean addArticulo(Articulo ar){
+        return this.articuloList.add(ar);
     }
     
 }
