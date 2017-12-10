@@ -46,6 +46,86 @@ public class VentanaAutor extends JInternalFrame
         this.setSize(500, 500);
     }
 
+    public List<JLabel> getEtiList() {
+        return etiList;
+    }
+
+    public void setEtiList(List<JLabel> etiList) {
+        this.etiList = etiList;
+    }
+
+    public List<JTextField> getTxtList() {
+        return txtList;
+    }
+
+    public void setTxtList(List<JTextField> txtList) {
+        this.txtList = txtList;
+    }
+
+    public JButton getBoton() {
+        return boton;
+    }
+
+    public void setBoton(JButton boton) {
+        this.boton = boton;
+    }
+
+    public JPanel getPanelPrincipal() {
+        return panelPrincipal;
+    }
+
+    public void setPanelPrincipal(JPanel panelPrincipal) {
+        this.panelPrincipal = panelPrincipal;
+    }
+
+    public GestionDato getgD() {
+        return gD;
+    }
+
+    public void setgD(GestionDato gD) {
+        this.gD = gD;
+    }
+
+    public Object[][] getDatos() {
+        return datos;
+    }
+
+    public void setDatos(Object[][] datos) {
+        this.datos = datos;
+    }
+
+    public Object[] getEncabezado() {
+        return encabezado;
+    }
+
+    public void setEncabezado(Object[] encabezado) {
+        this.encabezado = encabezado;
+    }
+
+    public DefaultTableModel getModeloTabla() {
+        return modeloTabla;
+    }
+
+    public void setModeloTabla(DefaultTableModel modeloTabla) {
+        this.modeloTabla = modeloTabla;
+    }
+
+    public JTable getTabla() {
+        return tabla;
+    }
+
+    public void setTabla(JTable tabla) {
+        this.tabla = tabla;
+    }
+
+    public JScrollPane getScroll() {
+        return scroll;
+    }
+
+    public void setScroll(JScrollPane scroll) {
+        this.scroll = scroll;
+    }
+
    
    
      public void iniciaComponentes()

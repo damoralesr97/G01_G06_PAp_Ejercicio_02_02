@@ -47,7 +47,7 @@ public class GestionDato
         this.revistaList = revistaList;
     }
     
-    public boolean addAspirante(Revista r){
+    public boolean addRevista(Revista r){
         return this.revistaList.add(r);
     }
  
@@ -57,6 +57,26 @@ public class GestionDato
     
     public boolean addArticulo(Articulo ar){
         return this.articuloList.add(ar);
+    }
+    
+    public Revista buscarRevista(String titulo){
+        
+        for(Revista r:this.getRevistaList()){
+            if(r.getTitulo().equals(titulo)){
+                return r;
+            }
+        }
+    return null;
+    }
+    
+    public Autor buscarAutor(String nombre){
+        
+        for(Autor a:this.getAutorList()){
+            if(a.getNombre().equals(nombre)){
+                return a;
+            }
+        }
+    return null;
     }
     
 }

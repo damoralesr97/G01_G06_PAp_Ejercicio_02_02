@@ -8,10 +8,10 @@ package modelo;
 public class Autor {
     
     private String nombre;
-    private String codigo;
+    private int codigo;
     private String cedula;
 
-    public Autor(String nombre, String codigo, String cedula) {
+    public Autor(String nombre, int codigo, String cedula) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.cedula = cedula;
@@ -25,11 +25,11 @@ public class Autor {
         this.nombre = nombre;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 

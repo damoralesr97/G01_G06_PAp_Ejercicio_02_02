@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.Revista;
 import vista.VentanaRevista;
 
 /**
@@ -35,6 +36,15 @@ public class EventoVentanaRevista implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
+        String numeroE,fechaP,titulo,codigo;
+        
+        numeroE=this.ventanaRevista.getTxtList().get(0).getText();
+        fechaP=this.ventanaRevista.getTxtList().get(1).getText();
+        titulo=this.ventanaRevista.getTxtList().get(2).getText();
+        codigo=this.ventanaRevista.getTxtList().get(3).getText();
+        
+        Revista revista= new Revista(Integer.parseInt(numeroE),fechaP,titulo,codigo);
+        this.ventanaRevista.getgD().addRevista(revista);
     }
     
 }

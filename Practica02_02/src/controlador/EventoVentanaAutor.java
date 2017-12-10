@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.Autor;
 import vista.VentanaAutor;
 
 /**
@@ -33,6 +34,17 @@ public class EventoVentanaAutor implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
+       
+        String nombre,codigo,cedula;
+        
+        nombre=this.ventanaAutor.getTxtList().get(0).getText();
+        codigo=this.ventanaAutor.getTxtList().get(1).getText();
+        cedula=this.ventanaAutor.getTxtList().get(2).getText();
+        
+        Autor autor=new Autor(nombre,Integer.parseInt(codigo),cedula);
+        this.ventanaAutor.getgD().addAutor(autor);
+        
+        
         
     }
     
