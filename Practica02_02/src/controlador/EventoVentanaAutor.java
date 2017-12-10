@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import vista.VentanaAutor;
 
 /**
  *
@@ -14,6 +15,22 @@ import java.awt.event.ActionListener;
  */
 public class EventoVentanaAutor implements ActionListener {
 
+    private VentanaAutor ventanaAutor;
+
+    public EventoVentanaAutor(VentanaAutor ventanaAutor) {
+        this.ventanaAutor = ventanaAutor;
+    }
+
+    public VentanaAutor getVentanaAutor() {
+        return ventanaAutor;
+    }
+
+    public void setVentanaAutor(VentanaAutor ventanaAutor) {
+        this.ventanaAutor = ventanaAutor;
+    }
+    
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         

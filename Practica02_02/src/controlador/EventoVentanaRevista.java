@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import vista.VentanaRevista;
 
 /**
  *
@@ -14,6 +15,23 @@ import java.awt.event.ActionListener;
  */
 public class EventoVentanaRevista implements ActionListener {
 
+    private VentanaRevista ventanaRevista;
+
+    public EventoVentanaRevista(VentanaRevista ventanaRevista) {
+        this.ventanaRevista = ventanaRevista;
+    }
+
+    public VentanaRevista getVentanaRevista() {
+        return ventanaRevista;
+    }
+
+    public void setVentanaRevista(VentanaRevista ventanaRevista) {
+        this.ventanaRevista = ventanaRevista;
+    }
+    
+    
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         
