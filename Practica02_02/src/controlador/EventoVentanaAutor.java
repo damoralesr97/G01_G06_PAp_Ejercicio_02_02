@@ -81,7 +81,6 @@ public class EventoVentanaAutor implements ActionListener {
                 }else{
                     throw new ExcepcionDuplicados("Usuario Registrado");
                 }
-                
                 JOptionPane.showMessageDialog(null, "Usuario Registrado en: "+guardar.getSelectedFile().getAbsolutePath(), "EXITO", JOptionPane.DEFAULT_OPTION);
                 }else{
                     boolean bandera1=eD.verificarAutor(autor);
