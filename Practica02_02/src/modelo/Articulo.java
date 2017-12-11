@@ -7,12 +7,12 @@ package modelo;
  */
 public class Articulo {
     
-    private String codigoArticulo;
+    private int codigoArticulo;
     private Autor autorArticulo;
     private String tituloArticulo;
     private Revista revistaArticulo;
 
-    public Articulo(String codigoArticulo, Autor autorArticulo, String tituloArticulo, Revista revistaArticulo) {
+    public Articulo(int codigoArticulo, Autor autorArticulo, String tituloArticulo, Revista revistaArticulo) {
         this.codigoArticulo = codigoArticulo;
         this.autorArticulo = autorArticulo;
         this.tituloArticulo = tituloArticulo;
@@ -21,11 +21,11 @@ public class Articulo {
 
    
 
-    public String getCodigoArticulo() {
+    public int getCodigoArticulo() {
         return codigoArticulo;
     }
 
-    public void setCodigoArticulo(String codigoArticulo) {
+    public void setCodigoArticulo(int codigoArticulo) {
         this.codigoArticulo = codigoArticulo;
     }
 

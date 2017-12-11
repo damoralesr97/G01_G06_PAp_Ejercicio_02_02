@@ -14,9 +14,9 @@ public class Revista {
     private int numeroEdicion;
     private String fechaPublicacion;
     private String titulo;
-    private String codigo;
+    private int codigo;
 
-    public Revista(int numeroEdicion, String fechaPublicacion, String titulo, String codigo) {
+    public Revista(int numeroEdicion, String fechaPublicacion, String titulo, int codigo) {
         this.numeroEdicion = numeroEdicion;
         this.fechaPublicacion = fechaPublicacion;
         this.titulo = titulo;
@@ -47,11 +47,11 @@ public class Revista {
         this.titulo = titulo;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
