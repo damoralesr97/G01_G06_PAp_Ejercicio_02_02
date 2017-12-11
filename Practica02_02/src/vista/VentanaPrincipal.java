@@ -25,9 +25,6 @@ public class VentanaPrincipal extends JFrame
     private JMenuBar barramenu;
     private List<JMenu> menuList;
     private List<JMenuItem> menuItemList;
-    private VentanaArticulo Ventanaarticulo;
-    private VentanaAutor Ventanaautor;
-    private VentanaRevista Ventanarevista;
     private GestionDato gd;
 
     public VentanaPrincipal(String titulo, int ancho, int alto, GestionDato gd) {
@@ -102,30 +99,6 @@ public class VentanaPrincipal extends JFrame
 
     public void setMenuItemList(List<JMenuItem> menuItemList) {
         this.menuItemList = menuItemList;
-    }
-
-    public VentanaArticulo getVentanaarticulo() {
-        return Ventanaarticulo;
-    }
-
-    public void setVentanaarticulo(VentanaArticulo Ventanaarticulo) {
-        this.Ventanaarticulo = Ventanaarticulo;
-    }
-
-    public VentanaAutor getVentanaautor() {
-        return Ventanaautor;
-    }
-
-    public void setVentanaautor(VentanaAutor Ventanaautor) {
-        this.Ventanaautor = Ventanaautor;
-    }
-
-    public VentanaRevista getVentanarevista() {
-        return Ventanarevista;
-    }
-
-    public void setVentanarevista(VentanaRevista Ventanarevista) {
-        this.Ventanarevista = Ventanarevista;
     }
 
     public GestionDato getGd() {

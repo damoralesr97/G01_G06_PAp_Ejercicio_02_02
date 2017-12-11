@@ -32,8 +32,6 @@ public class VentanaRevista extends JInternalFrame
 {
      private List<JLabel> etiList;
     private List<JTextField> txtList;
-    private JComboBox combo;
-    private JComboBox combo2;
     private JButton boton;
     private JPanel panelPrincipal;
     private GestionDato gD; 
@@ -64,22 +62,6 @@ public class VentanaRevista extends JInternalFrame
 
     public void setTxtList(List<JTextField> txtList) {
         this.txtList = txtList;
-    }
-
-    public JComboBox getCombo() {
-        return combo;
-    }
-
-    public void setCombo(JComboBox combo) {
-        this.combo = combo;
-    }
-
-    public JComboBox getCombo2() {
-        return combo2;
-    }
-
-    public void setCombo2(JComboBox combo2) {
-        this.combo2 = combo2;
     }
 
     public JButton getBoton() {
