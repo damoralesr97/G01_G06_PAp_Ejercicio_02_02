@@ -188,7 +188,7 @@ public class VentanaArticulo extends JInternalFrame
         this.encabezado[2] = "Autor";
         this.encabezado[3] = "Revista";
         
-        this.datos = this.cargaDatosTabla(this.gD.getArticuloList().size(), 3);
+        this.datos = this.cargaDatosTabla(this.gD.getArticuloList().size(), 4);
         this.modeloTabla = new DefaultTableModel(this.datos,this.encabezado);
         this.tabla = new JTable(modeloTabla);
         this.scroll = new JScrollPane(tabla);
@@ -209,8 +209,8 @@ public class VentanaArticulo extends JInternalFrame
             
                 retorno[i][0]=c.getTituloArticulo();
                 retorno[i][1]=c.getCodigoArticulo();
-                retorno[i][2]=c.getAutorArticulo();
-                retorno[i][3]=c.getRevistaArticulo();
+                retorno[i][2]=c.getAutorArticulo().getNombre();
+                retorno[i][3]=c.getRevistaArticulo().getTitulo();
 
             i++;
             

@@ -98,6 +98,30 @@ public class GestionDato
         return true; 
     }
     
+    public boolean escribirRevista(File archivo,Revista r) throws IOException{
+        
+        FileWriter wr=new FileWriter(archivo.getAbsolutePath(),true);
+        BufferedWriter br=new BufferedWriter(wr);
+        
+        br.append(r.getNumeroEdicion()+"/"+r.getFechaPublicacion()+"/"+r.getTitulo()+"/"+r.getCodigo());
+        br.newLine();
+        
+        br.close();
+        return true; 
+    }
+    
+    public boolean escribirArticulo(File archivo,Articulo a) throws IOException{
+        
+        FileWriter wr=new FileWriter(archivo.getAbsolutePath(),true);
+        BufferedWriter br=new BufferedWriter(wr);
+        
+        br.append(a.getCodigoArticulo()+"/"+a.getAutorArticulo().getCodigo()+"/"+a.getTituloArticulo()+"/"+a.getRevistaArticulo().getCodigo());
+        br.newLine();
+        
+        br.close();
+        return true; 
+    }
+    
     public void cargarDatosLista(File archivo) throws FileNotFoundException, IOException{
         
          FileReader fr= new FileReader(archivo.getAbsolutePath());
@@ -116,6 +140,68 @@ public class GestionDato
         
         Autor au= new Autor(temp[0],Integer.parseInt(temp[1]),temp[2]);
     return au ;
+    }
+    
+    public void cargarDatosListaRevista(File archivo) throws FileNotFoundException, IOException{
+        
+         FileReader fr= new FileReader(archivo.getAbsolutePath());
+        BufferedReader br=new BufferedReader(fr);
+        String linea;
+        while((linea=br.readLine())!=null)
+        {
+            this.revistaList.add(this.agregarRevista(linea));
+        }
+        br.close();
+        
+    }
+    
+    public Revista agregarRevista(String r){
+        String[] temp=r.split("/");
+        
+        
+        
+        Revista re= new Revista(Integer.parseInt(temp[0]),temp[1],temp[2],Integer.parseInt(temp[3]));
+    return re ;
+    }
+    
+    public void cargarDatosListaArticulo(File archivo) throws FileNotFoundException, IOException{
+        
+         FileReader fr= new FileReader(archivo.getAbsolutePath());
+        BufferedReader br=new BufferedReader(fr);
+        String linea;
+        while((linea=br.readLine())!=null)
+        {
+            this.articuloList.add(this.agregarArticulo(linea));
+        }
+        br.close();
+        
+    }
+    
+    public Articulo agregarArticulo(String r){
+        String[] temp=r.split("/");
+   
+        Articulo ar= new Articulo(Integer.parseInt(temp[0]),this.buscarAutor(Integer.parseInt(temp[1])),temp[2],this.buscarRevista(Integer.parseInt(temp[3])));
+    return ar;
+    }
+    
+    public Autor buscarAutor(int c){
+        
+        for(Autor a:this.getAutorList()){
+            if(a.getCodigo()==c){
+                return a;
+            }
+        }
+    return null;
+    }
+    
+     public Revista buscarRevista(int c){
+        
+        for(Revista r:this.getRevistaList()){
+            if(r.getCodigo()==c){
+                return r;
+            }
+        }
+    return null;
     }
     
 }

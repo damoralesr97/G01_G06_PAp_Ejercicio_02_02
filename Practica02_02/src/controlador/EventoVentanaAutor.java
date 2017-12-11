@@ -78,16 +78,23 @@ public class EventoVentanaAutor implements ActionListener {
                 if(bandera==true){
                     this.ventanaAutor.getgD().addAutor(autor);
                     this.ventanaAutor.getgD().escribirAutor(archivo, autor);
+                    JOptionPane.showMessageDialog(null, "Usuario Registrado en: "+guardar.getSelectedFile().getAbsolutePath(), "EXITO", JOptionPane.DEFAULT_OPTION);
+                    Object[][] datosTabla=this.ventanaAutor.cargaDatosTabla(this.ventanaAutor.getgD().getAutorList().size(), 3);
+                    this.ventanaAutor.setDatos(datosTabla);
+                    this.ventanaAutor.getModeloTabla().setDataVector(this.ventanaAutor.getDatos(),this.ventanaAutor.getEncabezado());
                 }else{
                     throw new ExcepcionDuplicados("Usuario Registrado");
                 }
-                JOptionPane.showMessageDialog(null, "Usuario Registrado en: "+guardar.getSelectedFile().getAbsolutePath(), "EXITO", JOptionPane.DEFAULT_OPTION);
+                
                 }else{
                     boolean bandera1=eD.verificarAutor(autor);
                     if(bandera1==true){
                       this.ventanaAutor.getgD().addAutor(autor);
                         this.ventanaAutor.getgD().escribirAutor(archivo, autor);
-                        JOptionPane.showMessageDialog(null, "Usuario Registrado en: "+guardar.getSelectedFile().getAbsolutePath(), "EXITO", JOptionPane.DEFAULT_OPTION);   
+                        JOptionPane.showMessageDialog(null, "Usuario Registrado en: "+guardar.getSelectedFile().getAbsolutePath(), "EXITO", JOptionPane.DEFAULT_OPTION);
+                        Object[][] datosTabla=this.ventanaAutor.cargaDatosTabla(this.ventanaAutor.getgD().getAutorList().size(), 3);
+                        this.ventanaAutor.setDatos(datosTabla);
+                        this.ventanaAutor.getModeloTabla().setDataVector(this.ventanaAutor.getDatos(),this.ventanaAutor.getEncabezado());
                     }else{
                         throw new ExcepcionDuplicados("Usuario Registrado");
                     }

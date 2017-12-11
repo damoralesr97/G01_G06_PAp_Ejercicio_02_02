@@ -184,7 +184,7 @@ public class VentanaRevista extends JInternalFrame
         this.encabezado[2] = "Nombre";
         this.encabezado[3] = "Codigo";
         
-        this.datos = this.cargaDatosTabla(this.gD.getRevistaList().size(),3);
+        this.datos = this.cargaDatosTabla(this.gD.getRevistaList().size(),4);
         this.modeloTabla = new DefaultTableModel(this.datos,this.encabezado);
         this.tabla = new JTable(modeloTabla);
         this.scroll = new JScrollPane(tabla);
@@ -202,7 +202,6 @@ public class VentanaRevista extends JInternalFrame
         int i=0;
         for(Revista a:this.gD.getRevistaList())
         {
-
                 retorno[i][0]=a.getNumeroEdicion();
                 retorno[i][1]=a.getFechaPublicacion();
                 retorno[i][2]=a.getTitulo();

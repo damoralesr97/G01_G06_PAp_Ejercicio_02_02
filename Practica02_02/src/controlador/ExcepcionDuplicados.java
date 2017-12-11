@@ -5,7 +5,9 @@
  */
 package controlador;
 
+import modelo.Articulo;
 import modelo.Autor;
+import modelo.Revista;
 
 /**
  *
@@ -25,7 +27,25 @@ public class ExcepcionDuplicados extends Exception {
     
     public boolean verificarAutor(Autor a){
         for(Autor au:this.gD.getAutorList()){
-            if(a.getCedula().equals(au.getCedula())){
+            if(a.getCedula().equals(au.getCedula()) || a.getCodigo()==au.getCodigo()){
+                return false;
+            }
+        }
+    return true;
+    }
+    
+    public boolean verificarRevista(Revista r){
+        for(Revista re:this.gD.getRevistaList()){
+            if(r.getCodigo()==re.getCodigo()){
+                return false;
+            }
+        }
+    return true;
+    }
+    
+    public boolean verificarArticulo(Articulo a){
+        for(Articulo ar:this.gD.getArticuloList()){
+            if(ar.getCodigoArticulo()==a.getCodigoArticulo()){
                 return false;
             }
         }
