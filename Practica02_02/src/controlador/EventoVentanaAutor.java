@@ -89,7 +89,7 @@ public class EventoVentanaAutor implements ActionListener {
                     archivo.createNewFile();
                     this.ventanaAutor.getgD().addAutor(autor);
                     this.ventanaAutor.getgD().escribirAutor(archivo, autor);
-                    JOptionPane.showMessageDialog(null, "Usuario Registrador en: "+guardar.getSelectedFile().getAbsolutePath(), "EXITO", JOptionPane.DEFAULT_OPTION);
+                    JOptionPane.showMessageDialog(null, "Usuario Registrado en: "+guardar.getSelectedFile().getAbsolutePath(), "EXITO", JOptionPane.DEFAULT_OPTION);
                     
                  }else{
                     
