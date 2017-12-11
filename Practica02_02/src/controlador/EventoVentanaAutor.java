@@ -9,6 +9,9 @@ import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -47,6 +50,12 @@ public class EventoVentanaAutor implements ActionListener {
             codigo=this.ventanaAutor.getTxtList().get(1).getText();
             cedula=this.ventanaAutor.getTxtList().get(2).getText().toUpperCase();
             
+            JFileChooser guardar=new JFileChooser();
+            JButton boton=new JButton();
+            Autor autor=new Autor(nombre,Integer.parseInt(codigo),cedula);
+        
+            
+            
             for(int i=0;i<nombre.length();i++){
                 if(nombre.charAt(i)<64 || nombre.charAt(i)>91){
                     throw new ExcepcionSoloLetras("Solo letras");
@@ -62,7 +71,7 @@ public class EventoVentanaAutor implements ActionListener {
                 throw new ExcepcionCedula("Cedula Incorrecta");
             }
         
-            Autor autor=new Autor(nombre,Integer.parseInt(codigo),cedula);
+            
             
             boolean bandera=false;
             for(Autor au:this.ventanaAutor.getgD().getAutorList()){
@@ -74,20 +83,22 @@ public class EventoVentanaAutor implements ActionListener {
             if(bandera==true){
                 throw new ExcepcionDuplicados("El autor ya esta registrado");
             } else{
-                this.ventanaAutor.getgD().addAutor(autor);
-            }
-            
-        
-        
-            JFileChooser guardar=new JFileChooser();
-            JButton boton=new JButton();
-        
-            if(guardar.showSaveDialog(boton)==JFileChooser.APPROVE_OPTION){
-                File archivo=new File(guardar.getSelectedFile().getAbsolutePath());
-            }else{
-                System.out.println("Se cancelo su opcion");
-            }
+                if(guardar.showSaveDialog(boton)==JFileChooser.APPROVE_OPTION){
+                    
+                    File archivo=new File(guardar.getSelectedFile().getAbsolutePath());
+                    archivo.createNewFile();
+                    this.ventanaAutor.getgD().addAutor(autor);
+                    this.ventanaAutor.getgD().escribirAutor(archivo, autor);
+                    JOptionPane.showMessageDialog(null, "Usuario Registrador en: "+guardar.getSelectedFile().getAbsolutePath(), "EXITO", JOptionPane.DEFAULT_OPTION);
+                    
+                 }else{
+                    
+                    JOptionPane.showMessageDialog(null, "Se cancelo su registro", "CANCELADO", JOptionPane.CANCEL_OPTION);
+                }
+                
+            } 
         }
+        
         catch(ExcepcionDuplicados ae){
             JOptionPane.showMessageDialog(null, "El autor ya esta registrado", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -99,15 +110,9 @@ public class EventoVentanaAutor implements ActionListener {
         }
         catch(ExcepcionCedula ae){
             JOptionPane.showMessageDialog(null, "Ingresar cedula valida", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        
-        
-        
-        
-        
-        
-        
+        } catch (IOException ex) {
+            Logger.getLogger(EventoVentanaAutor.class.getName()).log(Level.SEVERE, null, ex);
+        }   
     }
     
 }

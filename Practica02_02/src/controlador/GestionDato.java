@@ -9,6 +9,10 @@ package controlador;
  *
  * @author paulo
  */
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import modelo.*;
 public class GestionDato
@@ -77,6 +81,18 @@ public class GestionDato
             }
         }
     return null;
+    }
+    
+    public boolean escribirAutor(File archivo,Autor a) throws IOException{
+        
+        FileWriter wr=new FileWriter(archivo.getAbsolutePath(),true);
+        BufferedWriter br=new BufferedWriter(wr);
+        
+        br.append(a.getNombre()+"/"+a.getCodigo()+"/"+a.getCedula());
+        br.newLine();
+        
+        br.close();
+        return true; 
     }
     
 }
