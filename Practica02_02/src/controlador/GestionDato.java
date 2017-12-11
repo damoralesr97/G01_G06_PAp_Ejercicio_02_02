@@ -9,8 +9,11 @@ package controlador;
  *
  * @author paulo
  */
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -93,6 +96,26 @@ public class GestionDato
         
         br.close();
         return true; 
+    }
+    
+    public void cargarDatosLista(File archivo) throws FileNotFoundException, IOException{
+        
+         FileReader fr= new FileReader(archivo.getAbsolutePath());
+        BufferedReader br=new BufferedReader(fr);
+        String linea;
+        while((linea=br.readLine())!=null)
+        {
+            this.autorList.add(this.agregarAutor(linea));
+        }
+        br.close();
+        
+    }
+    
+    public Autor agregarAutor(String a){
+        String[] temp=a.split("/");
+        
+        Autor au= new Autor(temp[0],Integer.parseInt(temp[1]),temp[2]);
+    return au ;
     }
     
 }

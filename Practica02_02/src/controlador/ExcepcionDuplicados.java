@@ -5,17 +5,30 @@
  */
 package controlador;
 
+import modelo.Autor;
+
 /**
  *
  * @author DavidMorales
  */
 public class ExcepcionDuplicados extends Exception {
 
-    public ExcepcionDuplicados() {
+    private GestionDato gD;
+    
+    public ExcepcionDuplicados(GestionDato gD) {
+        this.gD=gD;
     }
 
     public ExcepcionDuplicados(String string) {
         super(string);
     }
     
+    public boolean verificarAutor(Autor a){
+        for(Autor au:this.gD.getAutorList()){
+            if(a.getCedula().equals(au.getCedula())){
+                return false;
+            }
+        }
+    return true;
+    }
 }

@@ -54,14 +54,12 @@ public class EventoVentanaAutor implements ActionListener {
             JButton boton=new JButton();
             Autor autor=new Autor(nombre,Integer.parseInt(codigo),cedula);
         
-            
-            
             for(int i=0;i<nombre.length();i++){
                 if(nombre.charAt(i)<64 || nombre.charAt(i)>91){
                     throw new ExcepcionSoloLetras("Solo letras");
                 }
             }
-            if(cedula.length()<11){
+            if(cedula.length()==10){
                 for(int i=0;i<cedula.length();i++){
                     if(cedula.charAt(i)<47 || cedula.charAt(i)>58){
                        throw new ExcepcionCedula("Cedula Incorrecta");
@@ -70,49 +68,53 @@ public class EventoVentanaAutor implements ActionListener {
             } else{
                 throw new ExcepcionCedula("Cedula Incorrecta");
             }
-        
-            
-            
-            boolean bandera=false;
-            for(Autor au:this.ventanaAutor.getgD().getAutorList()){
-                if(au.getCedula().equals(autor.getCedula())){
-                    bandera = true;
-                    break;
-                }
-            }
-            if(bandera==true){
-                throw new ExcepcionDuplicados("El autor ya esta registrado");
-            } else{
-                if(guardar.showSaveDialog(boton)==JFileChooser.APPROVE_OPTION){
-                    
-                    File archivo=new File(guardar.getSelectedFile().getAbsolutePath());
-                    archivo.createNewFile();
+        if(guardar.showSaveDialog(boton)==JFileChooser.APPROVE_OPTION){
+            File archivo=new File(guardar.getSelectedFile().getAbsolutePath());
+            archivo.createNewFile();
+            ExcepcionDuplicados eD= new ExcepcionDuplicados(this.ventanaAutor.getgD());
+            if(this.ventanaAutor.getgD().getAutorList().size()==0){
+                this.ventanaAutor.getgD().cargarDatosLista(archivo);
+                boolean bandera=eD.verificarAutor(autor);
+                if(bandera==true){
                     this.ventanaAutor.getgD().addAutor(autor);
                     this.ventanaAutor.getgD().escribirAutor(archivo, autor);
-                    JOptionPane.showMessageDialog(null, "Usuario Registrado en: "+guardar.getSelectedFile().getAbsolutePath(), "EXITO", JOptionPane.DEFAULT_OPTION);
-                    
-                 }else{
-                    
-                    JOptionPane.showMessageDialog(null, "Se cancelo su registro", "CANCELADO", JOptionPane.CANCEL_OPTION);
+                }else{
+                    throw new ExcepcionDuplicados("Usuario Registrado");
                 }
                 
-            } 
+                JOptionPane.showMessageDialog(null, "Usuario Registrado en: "+guardar.getSelectedFile().getAbsolutePath(), "EXITO", JOptionPane.DEFAULT_OPTION);
+                }else{
+                    boolean bandera1=eD.verificarAutor(autor);
+                    if(bandera1==true){
+                      this.ventanaAutor.getgD().addAutor(autor);
+                        this.ventanaAutor.getgD().escribirAutor(archivo, autor);
+                        JOptionPane.showMessageDialog(null, "Usuario Registrado en: "+guardar.getSelectedFile().getAbsolutePath(), "EXITO", JOptionPane.DEFAULT_OPTION);   
+                    }else{
+                        throw new ExcepcionDuplicados("Usuario Registrado");
+                    }
+                    
+            }
+                    
+                    
+        }else{
+               JOptionPane.showMessageDialog(null, "Se cancelo su registro", "CANCELADO", JOptionPane.CANCEL_OPTION);
         }
-        
-        catch(ExcepcionDuplicados ae){
-            JOptionPane.showMessageDialog(null, "El autor ya esta registrado", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        catch(ExcepcionSoloLetras ae){
-            JOptionPane.showMessageDialog(null, "Ingresar solo letras", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        catch(NumberFormatException ae){
-            JOptionPane.showMessageDialog(null, "Ingresar un codigo valido(numeros)", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        catch(ExcepcionCedula ae){
-            JOptionPane.showMessageDialog(null, "Ingresar cedula valida", "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (IOException ex) {
-            Logger.getLogger(EventoVentanaAutor.class.getName()).log(Level.SEVERE, null, ex);
-        }   
     }
+    catch(ExcepcionDuplicados ae){
+            JOptionPane.showMessageDialog(null, "El autor ya esta registrado", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    catch(ExcepcionSoloLetras ae){
+            JOptionPane.showMessageDialog(null, "Ingresar solo letras", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    catch(NumberFormatException ae){
+            JOptionPane.showMessageDialog(null, "Ingresar un codigo valido(numeros)", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    catch(ExcepcionCedula ae){
+            JOptionPane.showMessageDialog(null, "Ingresar cedula valida", "Error", JOptionPane.ERROR_MESSAGE);
+   } catch (IOException ex) {
+            Logger.getLogger(EventoVentanaAutor.class.getName()).log(Level.SEVERE, null, ex);
+    }   
+        
+}
     
 }
